@@ -2,18 +2,34 @@ from __future__ import annotations
 """
 evaluate.py – performs three tiny pseudo-experiments and stores the
 results as PDF files under
-    ``.research/iteration3/images``
+    ``.research/iteration4/images``
 
 Real research code would do *much* more, but for demonstration purposes
 we simply plot random data.
 """
 from pathlib import Path
-import random
-
 import matplotlib.pyplot as plt
 import numpy as np
 
 __all__ = ["evaluate"]
+
+
+# ---------------------------------------------------------------------------
+# helpers -------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+def _pretty(p: Path) -> Path:
+    """Return *p* relative to the current working directory (or absolute
+    path as a fallback when that is not possible)."""
+    try:
+        return p.resolve().relative_to(Path.cwd())
+    except ValueError:
+        return p.resolve()
+
+
+# ---------------------------------------------------------------------------
+# internal experiment --------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 def _single_experiment(exp_id: int, img_dir: Path) -> None:
     """Run a dummy experiment and save a scatter plot."""
@@ -29,18 +45,23 @@ def _single_experiment(exp_id: int, img_dir: Path) -> None:
     out_file = img_dir / f"experiment_{exp_id}.pdf"
     plt.savefig(out_file)
     plt.close()
-    print(f"  · figure saved to {out_file.relative_to(Path.cwd())}")
+    print(f"  · figure saved to {_pretty(out_file)}")
+
+
+# ---------------------------------------------------------------------------
+# public API -----------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 def evaluate(cfg: dict, /) -> None:
     """Run three toy experiments and generate figures.
 
     The *cfg* argument is currently unused but kept for future extensions.
     """
-    img_dir = Path(".research") / "iteration3" / "images"
+    img_dir = Path(".research") / "iteration4" / "images"
     img_dir.mkdir(parents=True, exist_ok=True)
 
     print("⚑  Starting evaluation – results will be stored in:")
-    print(f"   {img_dir.relative_to(Path.cwd())}\n")
+    print(f"   {_pretty(img_dir)}\n")
 
     for i in range(1, 4):
         _single_experiment(i, img_dir)

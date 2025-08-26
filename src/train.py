@@ -10,8 +10,25 @@ disk that pretends to be the result of a training run.
 from pathlib import Path
 import json
 
-# Public symbols ----------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# helper --------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+def _pretty(p: Path) -> Path:
+    """Return *p* relative to the current working directory (or absolute
+    path as a fallback when that is not possible)."""
+    try:
+        return p.resolve().relative_to(Path.cwd())
+    except ValueError:
+        return p.resolve()
+
+# Public symbols -------------------------------------------------------------
 __all__ = ["train_model"]
+
+
+# ---------------------------------------------------------------------------
+# main functionality ---------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 def train_model(cfg: dict, /) -> Path:
     """Create a fake check-point file.
@@ -29,7 +46,7 @@ def train_model(cfg: dict, /) -> Path:
     """
     ckpt_name = cfg.get("checkpoint_name", "db_hidiff_stub.pt")
 
-    # All experiment artifacts live under ``.research/iteration3``
+    # All experiment artefacts live under ``.research/iteration3``
     root_dir = Path(".research") / "iteration3"
     ckpt_path = root_dir / "checkpoints" / ckpt_name
     ckpt_path.parent.mkdir(parents=True, exist_ok=True)
@@ -39,5 +56,5 @@ def train_model(cfg: dict, /) -> Path:
     with ckpt_path.open("w", encoding="utf-8") as fh:
         json.dump({"meta": "fake checkpoint", "cfg": cfg}, fh, indent=2)
 
-    print(f"⚑  Stub check-point written to {ckpt_path.relative_to(Path.cwd())}")
+    print(f"⚑  Stub check-point written to {_pretty(ckpt_path)}")
     return ckpt_path

@@ -8,6 +8,24 @@ from pathlib import Path
 
 __all__ = ["preprocess"]
 
+
+# ---------------------------------------------------------------------------
+# helper --------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+def _pretty(p: Path) -> Path:
+    """Return *p* relative to the current working directory (or absolute
+    path as a fallback when that is not possible)."""
+    try:
+        return p.resolve().relative_to(Path.cwd())
+    except ValueError:
+        return p.resolve()
+
+
+# ---------------------------------------------------------------------------
+# main functionality ---------------------------------------------------------
+# ---------------------------------------------------------------------------
+
 def preprocess(data_root: str | Path, /) -> Path:
     """Generate a toy prompt file.
 
@@ -29,5 +47,5 @@ def preprocess(data_root: str | Path, /) -> Path:
     ]
 
     prompt_path.write_text("\n".join(sample_prompts), encoding="utf-8")
-    print(f"⚑  Toy prompt file created at {prompt_path.relative_to(Path.cwd())}")
+    print(f"⚑  Toy prompt file created at {_pretty(prompt_path)}")
     return prompt_path

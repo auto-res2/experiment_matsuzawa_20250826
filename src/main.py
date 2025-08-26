@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 """
 main.py – orchestrates the entire experimental pipeline
 =======================================================
@@ -89,7 +88,7 @@ def main():
     # 3. evaluation ---------------------------------------------------------
     _eval.evaluate(cfg)
 
-    print("\n⚑  Done.  All figures are located under .research/iteration3/images")
+    print("\n⚑  Done.  All figures are located under .research/iteration4/images")
 
 
 if __name__ == "__main__":
