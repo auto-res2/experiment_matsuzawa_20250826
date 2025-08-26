@@ -1,0 +1,7 @@
+{
+  "meta": "fake checkpoint",
+  "cfg": {
+    "train_steps": 300,
+    "checkpoint_name": "db_hidiff_stub.pt"
+  }
+}
