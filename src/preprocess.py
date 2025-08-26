@@ -14,7 +14,6 @@ import torch
 
 # ---------------------------------------------------------------------------
 
-
 def get_dataloaders(cfg: Dict[str, Any]) -> Tuple[DataLoader, DataLoader]:
     root = Path("data")
     root.mkdir(exist_ok=True)

@@ -6,7 +6,7 @@ CPU in <30 s yet keeps the modular building blocks so that researchers can
 replace any component with the full C/MCU implementation later on.
 
 All external imports must be recorded in requirements.txt; internal modules are
-referenced via relative imports (PEP-328).
+referenced via absolute imports (PEP-328).
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ from torch.utils.data import DataLoader
 # ---------------------------------------------------------------------------
 
 class ActivationTracer:
-    """Return logits _and_ a dictionary of intermediate activations for every
+    """Return logits *and* a dictionary of intermediate activations for every
     forward pass.  We hook into Conv / Linear / BN / LN layers.  A handle list
     is stored so that `.remove()` can be called once the experiment finishes.
     """

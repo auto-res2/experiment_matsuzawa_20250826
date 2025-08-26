@@ -1,4 +1,4 @@
-# quick.yaml – minimal config that fits into <30 s on CPU
+# config.yaml – minimal config that fits into <30 s on CPU
 seed: 7
 quick: true
 batch_size: 64

@@ -13,10 +13,9 @@ import matplotlib.pyplot as plt
 import torch
 from torch.utils.data import DataLoader
 
-from .train import ActivationTracer
+from src.train import ActivationTracer  # absolute import ensures robustness
 
 # ---------------------------------------------------------------------------
-
 
 def accuracy(logits: torch.Tensor, y: torch.Tensor) -> float:
     return (logits.argmax(1) == y).float().mean().item()
@@ -25,7 +24,6 @@ def accuracy(logits: torch.Tensor, y: torch.Tensor) -> float:
 # ---------------------------------------------------------------------------
 # Public API – evaluate()  (called by src/main.py)
 # ---------------------------------------------------------------------------
-
 
 def evaluate(model: torch.nn.Module, loader: DataLoader, cfg: Dict[str, Any]):
     device = next(model.parameters()).device
