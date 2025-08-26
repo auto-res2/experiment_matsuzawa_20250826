@@ -9,7 +9,7 @@ Important
 • Only relative imports are used inside the ``src`` package in compliance with
   the task rules.
 • All images / figures are saved via ``src.utils.save_fig`` which redirects
-  them into ``.research/iteration1/images`` as required.
+  them into ``.research/iteration2/images`` as required.
 """
 from __future__ import annotations
 
@@ -28,7 +28,9 @@ import torch.nn.functional as F
 # ---------------------------------------------------------------------------
 # 1.  Directory helpers ------------------------------------------------------
 # ---------------------------------------------------------------------------
-RESULTS_DIR = os.path.join(os.getcwd(), ".research", "iteration1", "images")
+# NOTE:  The specification for this iteration requires that *all* images are
+#        written under ``.research/iteration2/images``.
+RESULTS_DIR = os.path.join(os.getcwd(), ".research", "iteration2", "images")
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 # ---------------------------------------------------------------------------
@@ -196,3 +198,4 @@ def free_memory(*tensors):
     gc.collect()
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
+

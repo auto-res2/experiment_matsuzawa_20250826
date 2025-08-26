@@ -1,7 +1,0 @@
-experiment:
-  batch_size: 16
-  epochs: 3
-  learning_rate: 0.001
-  channels: 64
-  depth: 4
-  slice_len: 128

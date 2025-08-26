@@ -14,8 +14,35 @@ $ python -m src.main --plan 1 --device cuda       # only Plan-1
 """
 from __future__ import annotations
 
-import argparse
+# ---------------------------------------------------------------------------
+# 0.  Make sure the file can be executed *directly* -------------------------
+# ---------------------------------------------------------------------------
+# When ``src/main.py`` is launched via ``python src/main.py`` (as opposed to
+# ``python -m src.main``), relative imports would normally fail because
+# ``__package__`` is not set.  The small block below synthesises the minimal
+# package metadata so that the rest of the file can continue to use *only*
+# relative imports, satisfying the project requirement.
+
+import importlib.util
 import os
+import sys
+from pathlib import Path
+
+if __package__ is None:  # executed directly
+    pkg_name = "src"
+    pkg_path = Path(__file__).resolve().parent
+    if pkg_name not in sys.modules:
+        spec = importlib.util.spec_from_loader(pkg_name, loader=None, is_package=True)
+        module = importlib.util.module_from_spec(spec)
+        module.__path__ = [str(pkg_path)]  # type: ignore[attr-defined]
+        sys.modules[pkg_name] = module
+    __package__ = pkg_name  # type: ignore[assignment]
+
+# ---------------------------------------------------------------------------
+# 1.  Imports ----------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+import argparse
 import random
 
 import matplotlib.pyplot as plt
@@ -30,7 +57,7 @@ from .evaluate import evaluate_model
 sns.set_style("whitegrid")
 
 # ---------------------------------------------------------------------------
-# 1.  Helper: figure saver ---------------------------------------------------
+# 2.  Helper: figure saver ---------------------------------------------------
 # ---------------------------------------------------------------------------
 
 def _save(fig, name: str):
@@ -41,7 +68,7 @@ def _save(fig, name: str):
 
 
 # ---------------------------------------------------------------------------
-# 2.  Experiment Plan-1: memory / throughput --------------------------------
+# 3.  Experiment Plan-1: memory / throughput --------------------------------
 # ---------------------------------------------------------------------------
 
 def experiment_plan1(device: str = "cpu", quick: bool = False):
@@ -89,7 +116,7 @@ def experiment_plan1(device: str = "cpu", quick: bool = False):
 
 
 # ---------------------------------------------------------------------------
-# 3.  Experiment Plan-2: accuracy parity ------------------------------------
+# 4.  Experiment Plan-2: accuracy parity ------------------------------------
 # ---------------------------------------------------------------------------
 
 def experiment_plan2(device: str = "cpu", epochs: int = 3):
@@ -130,7 +157,7 @@ def experiment_plan2(device: str = "cpu", epochs: int = 3):
 
 
 # ---------------------------------------------------------------------------
-# 4.  Experiment Plan-3: giant WSI demo -------------------------------------
+# 5.  Experiment Plan-3: giant WSI demo -------------------------------------
 # ---------------------------------------------------------------------------
 
 def experiment_plan3(device: str = "cpu"):
@@ -153,7 +180,7 @@ def experiment_plan3(device: str = "cpu"):
 
 
 # ---------------------------------------------------------------------------
-# 5.  Quick functional test --------------------------------------------------
+# 6.  Quick functional test --------------------------------------------------
 # ---------------------------------------------------------------------------
 
 def test_all():
@@ -165,9 +192,11 @@ def test_all():
 
 
 # ---------------------------------------------------------------------------
-# 6.  CLI --------------------------------------------------------------------
+# 7.  CLI --------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
+    torch = __import__("torch")  # lazy import to keep the header small
+
     torch.manual_seed(2025)
     random.seed(2025)
 
