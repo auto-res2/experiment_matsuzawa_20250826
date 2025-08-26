@@ -6,5 +6,82 @@
     "cascaded diffusion efficiency",
     "multiscale denoising diffusion",
     "diffusion model acceleration"
+  ],
+  "research_study_list": [
+    {
+      "title": "Hierarchical Integration Diffusion Model for Realistic Image Deblurring"
+    },
+    {
+      "title": "Simple Hierarchical Planning with Diffusion"
+    },
+    {
+      "title": "Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models"
+    },
+    {
+      "title": "Likelihood Training of Cascaded Diffusion Models via Hierarchical Volume-preserving Maps"
+    },
+    {
+      "title": "f-DM: A Multi-stage Diffusion Model via Progressive Signal Transformation"
+    },
+    {
+      "title": "A Simple Early Exiting Framework for Accelerated Sampling in Diffusion Models"
+    },
+    {
+      "title": "EfficientDM: Efficient Quantization-Aware Fine-Tuning of Low-Bit Diffusion Models"
+    },
+    {
+      "title": "Improving Training Efficiency of Diffusion Models via Multi-Stage Framework and Tailored Multi-Decoder Architecture"
+    },
+    {
+      "title": "Efficient Denoising Diffusion via Probabilistic Masking"
+    },
+    {
+      "title": "Multistep Distillation of Diffusion Models via Moment Matching"
+    },
+    {
+      "title": "Likelihood Training of Cascaded Diffusion Models via Hierarchical Volume-preserving Maps"
+    },
+    {
+      "title": "Improving Training Efficiency of Diffusion Models via Multi-Stage Framework and Tailored Multi-Decoder Architecture"
+    },
+    {
+      "title": "Optical Diffusion Models for Image Generation"
+    },
+    {
+      "title": "Cache Me if You Can: Accelerating Diffusion Models through Block Caching"
+    },
+    {
+      "title": "SnapFusion: Text-to-Image Diffusion Model on Mobile Devices within Two Seconds"
+    },
+    {
+      "title": "Learning multi-scale local conditional probability models of images"
+    },
+    {
+      "title": "Learning multi-scale local conditional probability models of images"
+    },
+    {
+      "title": "Multi-scale Diffusion Denoised Smoothing"
+    },
+    {
+      "title": "Restoration based Generative Models"
+    },
+    {
+      "title": "Generative Powers of Ten"
+    },
+    {
+      "title": "Faster Diffusion: Rethinking the Role of the Encoder for Diffusion Model Inference"
+    },
+    {
+      "title": "Leveraging Early-Stage Robustness in Diffusion Models for Efficient and High-Quality Image Synthesis"
+    },
+    {
+      "title": "Post-Training Quantization on Diffusion Models"
+    },
+    {
+      "title": "A Simple Early Exiting Framework for Accelerated Sampling in Diffusion Models"
+    },
+    {
+      "title": "Multistep Distillation of Diffusion Models via Moment Matching"
+    }
   ]
 }
