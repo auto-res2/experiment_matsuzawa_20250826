@@ -6,5 +6,82 @@
     "state space vision model",
     "linear time sequence memory",
     "efficient visual SSM"
+  ],
+  "research_study_list": [
+    {
+      "title": "Vision Mamba Mender"
+    },
+    {
+      "title": "VMamba: Visual State Space Model"
+    },
+    {
+      "title": "Multi-Scale VMamba: Hierarchy in Hierarchy Visual State Space Model"
+    },
+    {
+      "title": "Vision Mamba: Efficient Visual Representation Learning with Bidirectional State Space Model"
+    },
+    {
+      "title": "Meteor: Mamba-based Traversal of Rationale for Large Language and Vision Models"
+    },
+    {
+      "title": "Vision Mamba Mender"
+    },
+    {
+      "title": "VMamba: Visual State Space Model"
+    },
+    {
+      "title": "Decision Mamba: Reinforcement Learning via Hybrid Selective Sequence Modeling"
+    },
+    {
+      "title": "Is Mamba Compatible with Trajectory Optimization in Offline Reinforcement Learning?"
+    },
+    {
+      "title": "The Mamba in the Llama: Distilling and Accelerating Hybrid Models"
+    },
+    {
+      "title": "Vision Mamba: Efficient Visual Representation Learning with Bidirectional State Space Model"
+    },
+    {
+      "title": "State Space Models for Event Cameras"
+    },
+    {
+      "title": "A 2-Dimensional State Space Layer for Spatial Inductive Bias"
+    },
+    {
+      "title": "QuadMamba: Learning Quadtree-based Selective Scan for Visual State Space Model"
+    },
+    {
+      "title": "Convolutional State Space Models for Long-Range Spatiotemporal Modeling"
+    },
+    {
+      "title": "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention"
+    },
+    {
+      "title": "Sub-Linear Memory: How to Make Performers SLiM"
+    },
+    {
+      "title": "Explain My Surprise: Learning Efficient Long-Term Memory by predicting uncertain outcomes"
+    },
+    {
+      "title": "Explain My Surprise: Learning Efficient Long-Term Memory by predicting uncertain outcomes"
+    },
+    {
+      "title": "Long Sequence Hopfield Memory"
+    },
+    {
+      "title": "Exploring Token Pruning in Vision State Space Models"
+    },
+    {
+      "title": "Vision Mamba: Efficient Visual Representation Learning with Bidirectional State Space Model"
+    },
+    {
+      "title": "Slot State Space Models"
+    },
+    {
+      "title": "A 2-Dimensional State Space Layer for Spatial Inductive Bias"
+    },
+    {
+      "title": "Multi-Scale VMamba: Hierarchy in Hierarchy Visual State Space Model"
+    }
   ]
 }
