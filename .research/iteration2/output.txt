@@ -1,0 +1,9 @@
+=== pip install start Tue Aug 26 06:56:29 UTC 2025 ===
+=== pip install end Tue Aug 26 06:56:29 UTC 2025 ===
+=== experiment start Tue Aug 26 06:56:29 UTC 2025 ===
+====  DB-HiDiff Research Suite  ====
+configuration:
+  train_steps: 300
+  checkpoint_name: db_hidiff_stub.pt
+====================================
+
